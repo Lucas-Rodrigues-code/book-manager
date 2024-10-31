@@ -14,8 +14,8 @@ import {
 import { Label } from "@/components/ui/label";
 
 import { useNavigate } from "react-router-dom";
-import { userLogin, userRegister } from "@/services/user.api";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { userRegister } from "@/services/user.api";
+import { useMutation } from "@tanstack/react-query";
 import { User } from "@/types/user.type";
 
 interface RegisterForm {

@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { PrivateRoute } from "./privateRoutes";
 import LoginPage from "@/pages/login";
 import RegisterPage from "@/pages/register";
+import Layout from "@/components/layout";
 
 export const AppRouter = () => {
   return (
@@ -11,7 +11,15 @@ export const AppRouter = () => {
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegisterPage />} />
         <Route path="/" element={<PrivateRoute />}>
-          <Route path="/home" element={<div>home</div>} />
+          <Route
+            element={
+              <Layout>
+                <Outlet />
+              </Layout>
+            }
+          >
+            <Route path="/home" element={<div className="container">home</div>} />
+          </Route>
         </Route>
       </Routes>
     </Router>

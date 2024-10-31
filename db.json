@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "password",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "user",
+      "email": "user@example.com",
+      "password": "password",
+      "role": "user"
+    },
+    {
+      "id": "ce12",
+      "name": "uhsuh",
+      "email": "rodriguesdesouzal28@gmail.com",
+      "password": "Evolabs@123",
+      "role": "admin"
+    },
+    {
+      "id": "dfb7",
+      "name": "war2",
+      "email": "sdfddn@example.com",
+      "password": "password",
+      "role": "user"
+    },
+    {
+      "id": "ef19",
+      "name": "Lucas Rodrigues de Souza",
+      "email": "addfmin@example.com",
+      "password": "password",
+      "role": "user"
+    },
+    {
+      "id": "b4b1",
+      "name": "Desenvolvimento full stack",
+      "email": "adfmin@example.com",
+      "password": "password",
+      "role": "user"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "description": "A classic novel about racial injustice in the American South."
+    },
+    {
+      "id": 2,
+      "title": "1984",
+      "author": "George Orwell",
+      "description": "A dystopian novel set in a totalitarian society."
+    }
+  ]
+}

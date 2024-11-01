@@ -39,3 +39,17 @@ export const userRegister = async (
     role: response.data.role,
   };
 };
+
+export const fetchUsers = async (): Promise<User[]> => {
+  const response = await api.get<User[]>(`/users`);
+  return response.data;
+};
+
+export const createUser = async (user: Omit<User, "id">): Promise<User> => {
+  const response = await api.post<User>("/users", user);
+  return response.data;
+};
+
+export const deleteUser = async (id: string): Promise<void> => {
+  await api.delete(`/users/${id}`);
+};

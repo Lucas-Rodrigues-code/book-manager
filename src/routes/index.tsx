@@ -11,6 +11,7 @@ import RegisterPage from "@/pages/register";
 import Layout from "@/components/layout";
 import ListBookPage from "@/pages/list-book";
 import NotFoundPage from "@/pages/not-found";
+import AdminDashboardPage from "@/pages/admin-dashboard-page";
 
 export const AppRouter = () => {
   return (
@@ -27,6 +28,7 @@ export const AppRouter = () => {
             }
           >
             <Route path="/" element={<ListBookPage />} />
+            <Route path="/admin" element={<AdminDashboardPage />} />
           </Route>
         </Route>
         <Route path="/*" element={<NotFoundPage />} />

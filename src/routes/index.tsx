@@ -10,6 +10,7 @@ import LoginPage from "@/pages/login";
 import RegisterPage from "@/pages/register";
 import Layout from "@/components/layout";
 import ListBookPage from "@/pages/list-book";
+import NotFoundPage from "@/pages/not-found";
 
 export const AppRouter = () => {
   return (
@@ -25,9 +26,10 @@ export const AppRouter = () => {
               </Layout>
             }
           >
-            <Route path="/home" element={<ListBookPage />} />
+            <Route path="/" element={<ListBookPage />} />
           </Route>
         </Route>
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

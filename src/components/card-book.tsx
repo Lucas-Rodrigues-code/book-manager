@@ -26,7 +26,7 @@ export default function CardBook(book: Book) {
           {book.title}
         </h3>
         <p className="text-sm text-gray-600">{book.author}</p>
-        <p className="text-xs text-gray-500">{book.year}</p>
+        <p className="text-xs text-gray-500">{book.publishedYear}</p>
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Dialog>

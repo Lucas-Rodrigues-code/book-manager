@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Eye, EyeOff, LogIn } from "lucide-react";
+import { Book, Eye, EyeOff, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
@@ -12,9 +12,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-
 import { userLogin } from "@/services/user.api";
 import { useAuth } from "@/hooks/useAuth";
+import { useToast } from "@/hooks/use-toast";
 
 interface LoginForm {
   email: string;
@@ -29,6 +29,7 @@ export default function LoginPage() {
   });
   const [errors, setErrors] = useState<Partial<LoginForm>>({});
 
+  const { toast } = useToast();
   const { setUser } = useAuth();
 
   const validate = () => {
@@ -63,16 +64,30 @@ export default function LoginPage() {
       localStorage.setItem("user", JSON.stringify(data));
       setUser(data);
       navigate("/");
-    } catch (error) {
-      alert("Invalid credentials");
+      toast({
+        variant: "default",
+        title: "Login efetuado",
+        description: "Você foi logado com sucesso",
+        className: "bg-[#69BA5D] text-white",
+      });
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Erro ao fazer login",
+        description: error.message,
+      });
     }
   };
 
   return (
-    <div className="flex items-center justify-center h-[100vh]">
+    <div className="flex items-center justify-center h-[100vh] bg-[url('/book.jpg')] bg-cover">
       <Card className="w-[350px]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-blue-800">
+            <div className="text-2xl font-bold flex items-center">
+              <Book className="mr-2" />
+              BiblioTech
+            </div>
             Login
           </CardTitle>
         </CardHeader>

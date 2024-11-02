@@ -1,6 +1,7 @@
 import { useState } from "react";
-
-import { Eye, EyeOff, LogIn } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { Book, Eye, EyeOff, LogIn } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,11 +13,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-
-import { useNavigate } from "react-router-dom";
 import { userRegister } from "@/services/user.api";
-import { useMutation } from "@tanstack/react-query";
 import { User } from "@/types/user.type";
+import { useToast } from "@/hooks/use-toast";
 
 interface RegisterForm {
   name: string;
@@ -32,6 +31,7 @@ export default function RegisterPage() {
     password: "",
   });
   const [errors, setErrors] = useState<Partial<RegisterForm>>({});
+  const { toast } = useToast();
 
   const validate = () => {
     const newErrors: Partial<RegisterForm> = {};
@@ -67,9 +67,18 @@ export default function RegisterPage() {
     onSuccess: (data: User) => {
       localStorage.setItem("user", JSON.stringify(data));
       navigate("/");
+      toast({
+        variant: "default",
+        title: "Usuário criado com sucesso",
+        className: "bg-[#69BA5D] text-white",
+      });
     },
     onError: () => {
       alert("Erro ao criar usuário");
+      toast({
+        variant: "destructive",
+        title: "Erro ao criar usuário",
+      });
     },
   });
 
@@ -84,10 +93,14 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex items-center justify-center h-[100vh]">
+    <div className="flex items-center justify-center h-[100vh] bg-[url('/book.jpg')] bg-cover">
       <Card className="w-[350px]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-blue-800">
+            <div className="text-2xl font-bold flex items-center">
+              <Book className="mr-2" />
+              BiblioTech
+            </div>
             Registre-se
           </CardTitle>
         </CardHeader>

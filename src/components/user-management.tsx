@@ -94,6 +94,14 @@ export default function UserManagement() {
   });
 
   const handleDeleteUser = (id: string) => {
+    if (id === "1") {
+      toast({
+        variant: "destructive",
+        title: "Erro ao deletar",
+        description: "Você não pode deletar o primeiro usuário (super admin)",
+      });
+      return;
+    }
     deleteMutation.mutate(id);
   };
 

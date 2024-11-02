@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UserManagement from "@/components/user-management";
+import BookManagement from "@/components/book-management";
 
 export default function AdminDashboardPage() {
   return (
@@ -13,7 +14,9 @@ export default function AdminDashboardPage() {
         <TabsContent value="users">
           <UserManagement />
         </TabsContent>
-        <TabsContent value="books"></TabsContent>
+        <TabsContent value="books">
+          <BookManagement />
+        </TabsContent>
       </Tabs>
     </div>
   );

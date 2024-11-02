@@ -16,11 +16,11 @@ export const createBook = async (book: Omit<Book, "id">): Promise<Book> => {
   return response.data;
 };
 
-export const updateBook = async (id: number, book: Book): Promise<Book> => {
+export const updateBook = async (id: string, book: Book): Promise<Book> => {
   const response = await api.put<Book>(`/books/${id}`, book);
   return response.data;
 };
 
-export const deleteBook = async (id: number): Promise<void> => {
+export const deleteBook = async (id: string): Promise<void> => {
   await api.delete(`/books/${id}`);
 };

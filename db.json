@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Admin",
       "email": "admin@example.com",
       "password": "password",
@@ -13,97 +13,87 @@
       "id": "1",
       "title": "O Sol é Para Todos",
       "author": "Harper Lee",
-      "year": 1960,
       "coverUrl": "https://m.media-amazon.com/images/I/51wdOrz6uNL._SY445_SX342_.jpg",
       "description": "Um romance sobre questões sérias de estupro e desigualdade racial.",
       "genre": "Ficção",
       "publishedYear": 1960
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "1984",
       "author": "George Orwell",
-      "year": 1949,
       "coverUrl": "https://m.media-amazon.com/images/I/81l3pUGbT8L._SY466_.jpg",
       "description": "Um romance de ficção científica social distópica e um conto de advertência sobre os perigos do totalitarismo.",
       "genre": "Distopia",
       "publishedYear": 1949
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "O Grande Gatsby",
       "author": "F. Scott Fitzgerald",
-      "year": 1925,
       "coverUrl": "https://m.media-amazon.com/images/I/71Lwg0Bc3TL._SY466_.jpg",
       "description": "Um romance que explora temas de riqueza, sociedade e o sonho americano.",
       "genre": "Ficção",
       "publishedYear": 1925
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Orgulho e Preconceito",
       "author": "Jane Austen",
-      "year": 1813,
       "coverUrl": "https://m.media-amazon.com/images/I/51AHB+f-0DL._SY445_SX342_.jpg",
       "description": "Um romance de costumes que retrata a nobreza rural britânica do início do século XIX.",
       "genre": "Romance",
       "publishedYear": 1813
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "O Apanhador no Campo de Centeio",
       "author": "J.D. Salinger",
-      "year": 1951,
       "coverUrl": "https://m.media-amazon.com/images/I/71b3GDZMzSL._SY466_.jpg",
       "description": "Um romance sobre as experiências de um jovem em Nova York.",
       "genre": "Ficção",
       "publishedYear": 1951
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Dom Quixote",
       "author": "Miguel de Cervantes",
-      "year": 1605,
       "coverUrl": "https://m.media-amazon.com/images/I/41mNUpN+w7L._SX342_SY445_.jpg",
       "description": "Um romance que narra as aventuras de um fidalgo chamado Alonso Quixano que, após ler muitos romances de cavalaria, decide tornar-se cavaleiro andante.",
       "genre": "Ficção",
       "publishedYear": 1605
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Cem Anos de Solidão",
       "author": "Gabriel García Márquez",
-      "year": 1967,
       "coverUrl": "https://m.media-amazon.com/images/I/515cVYLIP9L._SY445_SX342_.jpg",
       "description": "Um romance que narra a história da família Buendía ao longo de várias gerações.",
       "genre": "Realismo Mágico",
       "publishedYear": 1967
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Crime e Castigo",
       "author": "Fiódor Dostoiévski",
-      "year": 1866,
       "coverUrl": "https://m.media-amazon.com/images/I/51Js8XFrOeL._SY445_SX342_.jpg",
       "description": "Um romance que explora a mente atormentada de um jovem estudante que comete um assassinato e suas consequências psicológicas.",
       "genre": "Ficção",
       "publishedYear": 1866
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "O Pequeno Príncipe",
       "author": "Antoine de Saint-Exupéry",
-      "year": 1943,
       "coverUrl": "https://m.media-amazon.com/images/I/419ebAR2eeL._SY445_SX342_.jpg",
       "description": "Um conto filosófico com ilustrações aquarela que aborda temas como amor, perda e amizade.",
       "genre": "Infantil",
       "publishedYear": 1943
     },
     {
-      "id": 10,
-      "title": "O Senhor dos Anéis",
+      "id": "10",
+      "title": "O Senhor dos Áneis",
       "author": "J.R.R. Tolkien",
-      "year": 1954,
       "coverUrl": "https://m.media-amazon.com/images/I/41RxhG+e3XL._SX342_SY445_.jpg",
       "description": "Uma saga épica de fantasia que narra a luta para destruir o Um Anel e salvar a Terra Média.",
       "genre": "Fantasia",

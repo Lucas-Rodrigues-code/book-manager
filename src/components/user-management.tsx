@@ -24,6 +24,7 @@ import {
 import { User } from "@/types/user.type";
 import { createUser, deleteUser, fetchUsers } from "@/services/user.api";
 import { useToast } from "@/hooks/use-toast";
+import GenericTable from "./generic-table";
 
 type NewUser = {
   name: string;
@@ -105,6 +106,12 @@ export default function UserManagement() {
     deleteMutation.mutate(id);
   };
 
+  const columns = [
+    { header: "ID", accessor: "id" },
+    { header: "Nome", accessor: "name" },
+    { header: "Email", accessor: "email" },
+  ];
+
   return (
     <Card>
       <CardHeader>
@@ -140,7 +147,7 @@ export default function UserManagement() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Senha</Label>
+              <Label htmlFor="password">Senha</Label>
               <Input
                 id="password"
                 value={newUser.password}
@@ -155,32 +162,11 @@ export default function UserManagement() {
         </form>
       </CardContent>
       <CardFooter>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>ID</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {users.map((user) => (
-              <TableRow key={user.id}>
-                <TableCell>{user.id}</TableCell>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>
-                  <Button
-                    variant="destructive"
-                    onClick={() => handleDeleteUser(user.id)}
-                  >
-                    <CircleX />
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+        <GenericTable
+          columns={columns}
+          data={users}
+          onDelete={handleDeleteUser}
+        />
       </CardFooter>
     </Card>
   );

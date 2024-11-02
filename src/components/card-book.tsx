@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+import { Pencil } from "lucide-react";
+
 import { Book } from "@/types/book.type";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
@@ -9,8 +12,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function CardBook(book: Book) {
+  const navigate = useNavigate();
+  const { role } = useAuth();
   return (
     <Card
       key={book.id}
@@ -57,6 +63,15 @@ export default function CardBook(book: Book) {
               <p className="text-sm text-blue-600">{book.description}</p>
               <p className="text-sm text-blue-500 mt-2">Gênero: {book.genre}</p>
             </div>
+            <Button
+              onClick={() => navigate(`/admin?book=${book.id}`)}
+              className={`${
+                ["admin", "superAdmin"].includes(role) ? "" : "hidden"
+              } mt-4`}
+            >
+              <Pencil />
+              Editar
+            </Button>
           </DialogContent>
         </Dialog>
       </CardFooter>

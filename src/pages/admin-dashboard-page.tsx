@@ -2,11 +2,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UserManagement from "@/components/user-management";
 import BookManagement from "@/components/book-management";
 import { useAuth } from "@/hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function AdminDashboardPage() {
   const { role } = useAuth();
   const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+  const param = searchParams.get("book");
+  console.log(param, "param");
 
   if (role !== "admin" && role !== "superAdmin") {
     navigate("/");
@@ -16,7 +20,7 @@ export default function AdminDashboardPage() {
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
       <Tabs
-        defaultValue={`${role !== "superAdmin" ? "books" : "users"}`}
+        defaultValue={`${role !== "superAdmin" || param ? "books" : "users"}`}
         className="space-y-4"
       >
         <TabsList>
@@ -35,7 +39,7 @@ export default function AdminDashboardPage() {
           <UserManagement />
         </TabsContent>
         <TabsContent value="books">
-          <BookManagement />
+          <BookManagement bookId={param} />
         </TabsContent>
       </Tabs>
     </div>

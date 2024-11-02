@@ -16,6 +16,7 @@ import { Book } from "@/types/book.type";
 import {
   createBook,
   deleteBook,
+  fetchBook,
   fetchBooks,
   updateBook,
 } from "@/services/books.api";
@@ -33,7 +34,7 @@ type NewBook = {
   publishedYear: number;
 };
 
-export default function BookManagement() {
+export default function BookManagement({ bookId }: { bookId: string | null }) {
   const [books, setBooks] = useState<Book[]>([]);
   const [newBook, setNewBook] = useState<NewBook>({
     title: "",
@@ -48,6 +49,23 @@ export default function BookManagement() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const { toast } = useToast();
+
+  const { data: dataBook } = useQuery({
+    queryKey: ["book"],
+    queryFn: async () => {
+      if (bookId) {
+        return await fetchBook(bookId);
+      }
+    },
+    enabled: !!bookId,
+  });
+
+  useEffect(() => {
+    if (dataBook) {
+      setSelectedBook(dataBook);
+      setIsDialogOpen(true);
+    }
+  }, [dataBook]);
 
   const { data, refetch: refetchBooks } = useQuery({
     queryKey: ["books"],
@@ -102,6 +120,7 @@ export default function BookManagement() {
         description: "O livro foi deletado com sucesso",
         className: "bg-[#69BA5D] text-white",
       });
+      setIsDialogOpen(false);
     },
     onError: (error) => {
       toast({
@@ -137,6 +156,7 @@ export default function BookManagement() {
   });
   const handleUpdateBook = (e: React.FormEvent) => {
     e.preventDefault();
+    alert("Atualizar livro");
     if (selectedBook) {
       updateMutation.mutate(selectedBook);
     }
@@ -247,7 +267,7 @@ export default function BookManagement() {
       <CardFooter>
         <GenericTable
           columns={columns}
-          data={books}
+          data={books || []}
           onOpen={openEditBook}
           onDelete={handleDeleteBook}
         />
@@ -349,7 +369,14 @@ export default function BookManagement() {
                     />
                   </div>
                 </div>
-                <Button type="submit">Atualizar livro</Button>
+                <Button type="submit">Atualizar livro</Button>.
+                <Button
+                  type="button"
+                  variant="destructive"
+                  onClick={() => handleDeleteBook(selectedBook.id)}
+                >
+                  Deletar livro
+                </Button>
               </form>
             </DialogContent>
           </Dialog>

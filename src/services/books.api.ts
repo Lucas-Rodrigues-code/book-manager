@@ -6,7 +6,7 @@ export const fetchBooks = async (): Promise<Book[]> => {
   return response.data;
 };
 
-export const fetchBook = async (id: number): Promise<Book> => {
+export const fetchBook = async (id: string): Promise<Book> => {
   const response = await api.get<Book>(`/books/${id}`);
   return response.data;
 };

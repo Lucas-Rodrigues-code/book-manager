@@ -14,7 +14,7 @@ export default function Navbar() {
   const { logout } = useAuth();
 
   const navLinks = [
-    { href: "/books", label: "Catálogo" },
+    { href: "/", label: "Catálogo" },
     { href: "/admin", label: "Admin" },
   ];
 
@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <header className="bg-blue-600 text-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/home" className="text-2xl font-bold flex items-center">
+        <a href="/" className="text-2xl font-bold flex items-center">
           <Book className="mr-2" />
           BiblioTech
         </a>

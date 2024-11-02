@@ -19,7 +19,7 @@ export default function CardBook(book: Book) {
       <img
         src={book.coverUrl}
         alt={`Capa de ${book.title}`}
-        className="w-full h-48 object-cover"
+        className="w-full h-full"
       />
       <CardContent className="flex-grow p-4">
         <h3 className="font-semibold text-lg mb-1 text-blue-800">
@@ -49,7 +49,7 @@ export default function CardBook(book: Book) {
               <img
                 src={book.coverUrl}
                 alt={`Capa de ${book.title}`}
-                className="w-full h-48 object-cover"
+                className="w-full h-60"
               />
               <h4 className="text-sm font-semibold text-blue-700 mb-2">
                 Descrição:

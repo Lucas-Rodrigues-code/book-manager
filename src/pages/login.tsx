@@ -62,7 +62,7 @@ export default function LoginPage() {
 
       localStorage.setItem("user", JSON.stringify(data));
       setUser(data);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       alert("Invalid credentials");
     }

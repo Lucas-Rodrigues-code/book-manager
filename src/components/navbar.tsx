@@ -75,7 +75,7 @@ export default function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="border-none">
               <DropdownMenuSeparator />
-              {navLinks.map((link) => (
+              {filteredNavLinks.map((link) => (
                 <DropdownMenuItem key={link.href}>
                   <a href={link.href} className="hover:text-blue-200">
                     {link.label}

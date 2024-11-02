@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# Gerenciador de Livros Biblio tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
+Este é um gerenciador de livros desenvolvido com React e Vite. O projeto inclui funcionalidades para gerenciar usuários e livros, com as seguintes rotas principais:
+- `/users`: Gerenciamento de usuários
+- `/books`: Gerenciamento de livros
 
-Currently, two official plugins are available:
+## Funcionalidades
+- **Gerenciamento de Usuários**:
+  - Criação de novos usuários
+  - Exclusão de usuários
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Gerenciamento de Livros**:
+  - Adição de novos livros ao catálogo
+  - Edição das informações dos livros
+  - Remoção de livros do catálogo
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
+- **React**: Biblioteca para construção da interface do usuário.
+- **Vite**: Ferramenta de build rápida para desenvolvimento de projetos front-end.
+- **TypeScript**: Suporte a tipagem estática para JavaScript.
+- **Jest**: Framework de testes para JavaScript.
+- **React Router**: Gerenciamento de rotas na aplicação.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instalação e Execução
 
-- Configure the top-level `parserOptions` property like this:
+### Pré-requisitos
+- Node.js (versão 14 ou superior)
+- npm ou yarn
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Clonando o Repositório
+```bash
+git clone git@github.com:Lucas-Rodrigues-code/book-manager.git
+cd book-manager
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### Instalando Dependências
 ```
+npm install
+```
+
+### Configurando a URL da API
+
+Crie um arquivo .env na raiz do projeto e adicione a seguinte linha:
+```
+VITE_API_BASE_URL=http://localhost:3001
+```
+
+### Executando o Projeto
+```
+npm run dev
+```
+
+### O projeto estará rodando em:
+```
+http://localhost:5173.
+```
+
+### Rodando o Back-end Fake (usando JSON Server)
+```
+npx json-server --watch db.json --port 3001
+```
+
+
+

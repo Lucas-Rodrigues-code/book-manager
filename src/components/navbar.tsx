@@ -11,12 +11,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function Navbar() {
-  const { logout } = useAuth();
+  const { role, logout } = useAuth();
 
   const navLinks = [
     { href: "/", label: "Catálogo" },
-    { href: "/admin", label: "Admin" },
+    { href: "/admin", label: "Admin", roles: ["admin","superAdmin"] },
   ];
+
+  const filteredNavLinks = navLinks.filter(
+    (link) => !link.roles || link.roles.includes(role)
+  );
 
   const buttons = [
     {
@@ -42,7 +46,7 @@ export default function Navbar() {
         </a>
         <nav className="hidden md:flex">
           <ul className="flex space-x-4">
-            {navLinks.map((link) => (
+            {filteredNavLinks.map((link) => (
               <li key={link.href}>
                 <a href={link.href} className="hover:text-blue-200">
                   {link.label}

@@ -6,6 +6,7 @@ type AuthContextType = {
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
   logout: () => void;
   signed: boolean;
+  role: string;
 };
 
 export const AuthContext = createContext<AuthContextType | undefined>(
@@ -43,6 +44,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setUser,
         logout,
         signed: !!user,
+        role: user?.role || "user",
       }}
     >
       {children}

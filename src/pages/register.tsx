@@ -66,7 +66,7 @@ export default function RegisterPage() {
     },
     onSuccess: (data: User) => {
       localStorage.setItem("user", JSON.stringify(data));
-      navigate("/home");
+      navigate("/");
     },
     onError: () => {
       alert("Erro ao criar usuário");

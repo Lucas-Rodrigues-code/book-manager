@@ -1,4 +1,4 @@
-import { Book, User, LogOut, Menu } from "lucide-react";
+import { Book, LogOut, Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
@@ -23,12 +23,6 @@ export default function Navbar() {
   );
 
   const buttons = [
-    {
-      href: "/profile",
-      label: "Perfil",
-      icon: <User className="mr-2 h-4 w-4" />,
-      action: null,
-    },
     {
       href: "#",
       label: "Sair",

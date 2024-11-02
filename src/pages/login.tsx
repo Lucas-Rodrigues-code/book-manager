@@ -99,6 +99,7 @@ export default function LoginPage() {
                 <Input
                   id="email"
                   type="email"
+                  placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
                   className="text-[16px]"
@@ -112,6 +113,7 @@ export default function LoginPage() {
                 <div className="relative">
                   <Input
                     id="password"
+                    placeholder="Senha"
                     type={showPassword ? "text" : "password"}
                     value={formData.password}
                     onChange={handleChange}

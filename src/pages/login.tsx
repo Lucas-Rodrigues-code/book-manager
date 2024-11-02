@@ -86,6 +86,7 @@ export default function LoginPage() {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
+                  className="text-[16px]"
                 />
                 {errors.email && (
                   <span className="text-red-500 text-sm">{errors.email}</span>
@@ -99,6 +100,7 @@ export default function LoginPage() {
                     type={showPassword ? "text" : "password"}
                     value={formData.password}
                     onChange={handleChange}
+                    className="text-[16px]"
                   />
                   <Button
                     type="button"

@@ -93,7 +93,7 @@ export default function RegisterPage() {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
-            <div className="grid w-full items-center gap-4">
+            <div className="grid w-full items-center gap-4 text-[16px]">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="email">Nome</Label>
                 <Input
@@ -101,6 +101,7 @@ export default function RegisterPage() {
                   type="text"
                   value={formData.name}
                   onChange={handleChange}
+                  className="text-[16px]"
                 />
                 {errors.name && (
                   <span className="text-red-500 text-sm">{errors.name}</span>
@@ -113,6 +114,7 @@ export default function RegisterPage() {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
+                  className="text-[16px]"
                 />
                 {errors.email && (
                   <span className="text-red-500 text-sm">{errors.email}</span>
@@ -126,6 +128,7 @@ export default function RegisterPage() {
                     type={showPassword ? "text" : "password"}
                     value={formData.password}
                     onChange={handleChange}
+                    className="text-[16px]"
                   />
                   <Button
                     type="button"

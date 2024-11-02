@@ -1,4 +1,3 @@
-import { CircleX } from "lucide-react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
@@ -13,14 +12,6 @@ import {
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "./ui/table";
 import { User } from "@/types/user.type";
 import { createUser, deleteUser, fetchUsers } from "@/services/user.api";
 import { useToast } from "@/hooks/use-toast";
